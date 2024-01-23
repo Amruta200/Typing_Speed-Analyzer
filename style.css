@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    display: flex;
+    padding: 0 10px;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: lightcoral;
+}
+
+::selection {
+    color: #fff;
+    background: #17a2b8;
+}
+
+.wrapper {
+    width: 770px;
+    padding: 2px;
+    background: #0f172a;
+    color: #f1f5f9;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+}
+
+.wrapper .input-field {
+    opacity: 0;
+    z-index: -999;
+    position: absolute;
+}
+
+.wrapper .content-box {
+    padding: 13px 20px 0;
+    border-radius: 10px;
+    border: 1px solid #bfbfbf;
+}
+
+.content-box .typing-text {
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.typing-text::-webkit-scrollbar {
+    width: 0;
+}
+
+.typing-text p {
+    font-size: 21px;
+    text-align: justify;
+    letter-spacing: 1px;
+}
+
+.typing-text p span {
+    position: relative;
+}
+
+.typing-text p span.correct {
+    color: lawngreen;
+}
+
+.typing-text p span.incorrect {
+    color: red;
+    outline: 1px solid #fff;
+    background: #ffc0cb;
+    border-radius: 5px;
+}
+
+.typing-text p span.active {
+    color: #17a2b8;
+}
+
+.typing-text p span.active::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 5px;
+    height: 3px;
+    animation: blink 1s ease-in-out infinite;
+    background-color: deepskyblue;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 1;
+    }
+}
+
+.content-box .content {
+    display: flex;
+    margin-top: 17px;
+    padding: 10px 0;
+    border-top: 1px solid #bfbfbf;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    line-break: auto;
+}
+
+.content button {
+    color: #fff;
+    width: 100px;
+    font-size: 15px;
+    padding: 10px 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background: #17a2b8;
+    transition: transform 0.3s ease;
+}
+
+.content button:active {
+    transform: scale(0.97);
+}
+
+.content .result-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: calc(100% - 140px);
+    justify-content: space-between;
+}
+
+.result-details li {
+    height: 20px;
+    position: relative;
+    align-items: center;
+    list-style: none;
+    display: flex;
+}
+
+.result-details li:not(:first-child) {
+    padding-left: 20px;
+    border-left: 1px solid #bfbfbf;
+}
+
+.result-details li p {
+    font-size: 18px;
+}
+
+.result-details li span {
+    display: block;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+li span b {
+    font-weight: 500;
+}
+
+li:not(:first-child) span {
+    font-weight: 500;
+}
+
+.errors span{
+    color: #facc15;
+}
+.timeLeft span{
+    color: #cb3439;
+}
